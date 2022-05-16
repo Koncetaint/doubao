@@ -91,6 +91,9 @@ export default {
                 type: "success",
                 duration: 2000,
               });
+
+            
+              
               setTimeout(() => {
                 this.loading = false;
                 this.$router.push({ path: this.redirect || "/" });
