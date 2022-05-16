@@ -7,15 +7,19 @@
     <div class="container context">
         <router-view :key="this.$route.fullPath"></router-view>
     </div>
+
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
 import Header from '@/components/Layout/Header'
+import Footer from '@/components/Layout/Footer'
 export default {
   name:'App',
   components:{
     Header,
+    Footer
   }
 }
 </script>
