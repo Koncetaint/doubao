@@ -29,6 +29,11 @@ const routes = [
       meta: { title: '信息发布', requireAuth: true }
     },
     {
+      name: "post-detail",
+      path: "/post/:id",
+      component: () => import("@/views/post/Detail"),
+    },
+    {
       path:'/404',
       name:'404',
       component: () => import('@/views/error/404'),
