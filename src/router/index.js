@@ -28,6 +28,15 @@ const routes = [
       component : () => import('@/views/post/Create'),
       meta: { title: '信息发布', requireAuth: true }
     },
+    // 编辑
+    {
+      name: 'topic-edit',
+      path: '/topic/edit/:id',
+      component: () => import('@/views/post/Edit'),
+      meta: {
+        title: '编辑'
+      }
+    },
     {
       name: "post-detail",
       path: "/post/:id",

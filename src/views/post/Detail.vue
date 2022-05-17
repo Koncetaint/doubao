@@ -20,10 +20,8 @@
             <span>查看：{{ topic.view }}</span>
           </div>
         </div>
-
         <!--Markdown-->
         <div id="preview" />
-
         <!--标签-->
         <nav class="level has-text-grey is-size-7 mt-6">
           <div class="level-left">
@@ -60,27 +58,35 @@
           </div>
         </nav>
       </el-card>
-
+     <!-- 评论 -->
+      <lv-comments :slug="topic.id" /> 
     </div>
 
     <div class="column">
-     <!--作者-->
+      <!--作者-->
       <Author
         v-if="flag"
         :user="topicUser"
       />
+      <!--推荐-->
+      <recommend
+        v-if="flag"
+        :topic-id="topic.id"
+      />
     </div>
   </div>
 </template>
-
 <script>
-import Author from '@/views/post/Author'
 import { deleteTopic, getTopic } from '@/api/post'
 import { mapGetters } from 'vuex'
+import Author from '@/views/post/Author'
+import Recommend from '@/views/post/Recommend'
+import LvComments from '@/components/Comment/Comments'
 import Vditor from 'vditor'
 import 'vditor/dist/index.css'
 export default {
   name: 'TopicDetail',
+  components: { Author, Recommend, LvComments },
   computed: {
     ...mapGetters([
       'token','user'
@@ -97,7 +103,6 @@ export default {
       topicUser: {}
     }
   },
-    components: { Author },
   mounted() {
     this.fetchTopic()
   },
@@ -134,7 +139,6 @@ export default {
   }
 }
 </script>
-
 <style>
 #preview {
   min-height: 300px;
