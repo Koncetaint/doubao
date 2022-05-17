@@ -23,6 +23,12 @@ const routes = [
       meta:{ title: '登录' }
     },
     {
+      path:'/post/create',
+      name:'post-create',
+      component : () => import('@/views/post/Create'),
+      meta: { title: '信息发布', requireAuth: true }
+    },
+    {
       path:'/404',
       name:'404',
       component: () => import('@/views/error/404'),
